@@ -1,3 +1,7 @@
+/*
+ * https://rust-analyzer.github.io/manual.html#vs-code-2
+ */
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
@@ -12,6 +16,11 @@ pub mod sorting {
                 }
             }
         }
+    }
+
+    pub fn int_selection_sort(arr: &mut [i32]) {
+        /*Function to sort in-place, no return value */
+        0;
     }
 }
 
@@ -32,4 +41,17 @@ mod tests {
         int_bubble_sort(&mut arr);
         assert_eq!(arr, [1,2,5,5,6,9]);
     }
+
+    #[test]
+    fn test_int_selection_sort() {
+        use sorting::int_selection_sort;
+        let mut arr = [5,10,3,6,9,3,4,2];
+        int_selection_sort(&mut arr);
+        assert_eq!(arr, [2,3,3,4,5,6,9,10]);
+    }
 }
+
+/* Why take in a mutable reference?
+* The & create an array slice. A slice is, or is like, a smart pointer
+* that automatically implements the Deref trait. 
+*/
