@@ -24,10 +24,14 @@ pub mod sorting {
         * Selection sort finds the minimum value and puts in current location
         */
         let length = arr.len();
-        for main_index in 0..length {
+        
+        // (length-1) so we don't unnecessarly check last value, and prevent index error in next loop
+        for main_index in 0..length-1 {
             let mut swap = false;
             let mut swap_index = main_index;
-            for current_index in main_index..length {
+
+            // (main_index+1) so we don't unnecessarily check against itself.
+            for current_index in (main_index+1)..length {
                 if arr[current_index] < arr[swap_index] {
                     swap = true;
                     swap_index = current_index;
@@ -64,6 +68,10 @@ mod tests {
         let mut arr = [5,10,3,6,9,3,4,2];
         int_selection_sort(&mut arr);
         assert_eq!(arr, [2,3,3,4,5,6,9,10]);
+
+        let mut arr2 = [5,4,3,2,1];
+        int_selection_sort(&mut arr2);
+        assert_eq!(arr2, [1,2,3,4,5]);
     }
 }
 
