@@ -19,8 +19,24 @@ pub mod sorting {
     }
 
     pub fn int_selection_sort(arr: &mut [i32]) {
-        /*Function to sort in-place, no return value */
-        0;
+        /*Function to sort in-place, no return value 
+        * https://www.interviewcake.com/sorting-algorithm-cheat-sheet
+        * Selection sort finds the minimum value and puts in current location
+        */
+        let length = arr.len();
+        for main_index in 0..length {
+            let mut swap = false;
+            let mut swap_index = main_index;
+            for current_index in main_index..length {
+                if arr[current_index] < arr[swap_index] {
+                    swap = true;
+                    swap_index = current_index;
+                }
+            }
+            if swap {
+                arr.swap(main_index, swap_index);
+            }
+        }
     }
 }
 
