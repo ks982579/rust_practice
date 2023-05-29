@@ -66,6 +66,22 @@ mod tests {
     }
 
     #[test]
+    fn test_char_bubble_sort() {
+        use sorting::bubble_sort;
+        let mut arr = ['D','t','T','d','A','i','Z'];
+        bubble_sort(&mut arr);
+        assert_eq!(arr, ['A','D','T','Z','d','i','t']);
+    }
+
+    #[test]
+    fn test_string_bubble_sort() {
+        use sorting::bubble_sort;
+        let mut arr = ["Hi", "Hello", "Goodbye"];
+        bubble_sort(&mut arr);
+        assert_eq!(arr, ["Goodbye", "Hello", "Hi"]);
+    }
+
+    #[test]
     fn test_int_selection_sort() {
         use sorting::selection_sort;
         let mut arr = [5,10,3,6,9,3,4,2];
@@ -75,6 +91,22 @@ mod tests {
         let mut arr2 = [5,4,3,2,1];
         selection_sort(&mut arr2);
         assert_eq!(arr2, [1,2,3,4,5]);
+    }
+
+    #[test]
+    fn test_char_selection_sort() {
+        use sorting::selection_sort;
+        let mut arr = ['C','z','A','a','k','F'];
+        selection_sort(&mut arr);
+        assert_eq!(arr, ['A','C','F','a','k','z']);
+    }
+
+    #[test]
+    fn test_string_selection_sort() {
+        use sorting::selection_sort;
+        let mut arr = ["Hi", "Hello", "Goodbye"];
+        selection_sort(&mut arr);
+        assert_eq!(arr, ["Goodbye", "Hello", "Hi"]);
     }
 }
 
