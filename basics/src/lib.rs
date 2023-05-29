@@ -45,6 +45,10 @@ pub mod sorting {
             }
         }
     }
+
+    pub fn insertion_sort<T: PartialOrd> (arr: &mut [T]) {
+        ()
+    }
 }
 
 #[cfg(test)]
