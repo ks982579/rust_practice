@@ -164,9 +164,9 @@ mod tests {
     #[test]
     fn test_string_insertion_sort() {
         use sorting::insertion_sort;
-        let mut arr = ["Hi", "Hello", "Goodbye"];
+        let mut arr = ["Cherry", "Cherries", "Banana", "Apple"];
         insertion_sort(&mut arr);
-        assert_eq!(arr, ["Goodbye", "Hello", "Hi"]);
+        assert_eq!(arr, ["Apple", "Banana", "Cherries", "Cherry"]);
     }
 }
 
