@@ -113,6 +113,7 @@ mod tests {
         assert_eq!(arr2, [1,2,3,4,5]);
     }
 
+    // Selection Sort Tests
     #[test]
     fn test_vec_int_selection_sort() {
         use sorting::selection_sort;
@@ -138,6 +139,34 @@ mod tests {
         use sorting::selection_sort;
         let mut arr = ["Hi", "Hello", "Goodbye"];
         selection_sort(&mut arr);
+        assert_eq!(arr, ["Goodbye", "Hello", "Hi"]);
+    }
+    // Insertion Sort Tests
+    #[test]
+    fn test_vec_int_insertion_sort() {
+        use sorting::insertion_sort;
+        let mut arr = vec![5,10,3,6,9,3,4,2];
+        insertion_sort(&mut arr);
+        assert_eq!(arr, [2,3,3,4,5,6,9,10]);
+
+        let mut arr2 = [5,4,3,2,1];
+        insertion_sort(&mut arr2);
+        assert_eq!(arr2, [1,2,3,4,5]);
+    }
+
+    #[test]
+    fn test_char_insertion_sort() {
+        use sorting::insertion_sort;
+        let mut arr = ['C','z','A','a','k','F'];
+        insertion_sort(&mut arr);
+        assert_eq!(arr, ['A','C','F','a','k','z']);
+    }
+
+    #[test]
+    fn test_string_insertion_sort() {
+        use sorting::insertion_sort;
+        let mut arr = ["Hi", "Hello", "Goodbye"];
+        insertion_sort(&mut arr);
         assert_eq!(arr, ["Goodbye", "Hello", "Hi"]);
     }
 }
