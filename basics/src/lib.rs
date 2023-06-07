@@ -63,7 +63,6 @@ pub mod sorting {
                 counter += 1;
             }
         }
-        todo!();
     }
 }
 
