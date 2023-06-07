@@ -46,8 +46,24 @@ pub mod sorting {
         }
     }
 
-    pub fn insertion_sort<T: PartialOrd> (arr: &mut [T]) {
-        ()
+    pub fn insertion_sort<T: PartialOrd> (unsorted: &mut [T]) {
+        let length = unsorted.len();
+        let mut counter = 0;
+        while counter < (length - 1)  {
+            // If value greater than next, we swap and increase counter.
+            if unsorted[counter] > unsorted[counter + 1] {
+                unsorted.swap(counter, counter + 1);
+                // Ensure counter does not go below zero
+                if counter != 0 {
+                    counter -= 1;
+                } else {
+                    counter += 1;
+                }
+            } else {
+                counter += 1;
+            }
+        }
+        todo!();
     }
 }
 
@@ -89,6 +105,18 @@ mod tests {
     fn test_int_selection_sort() {
         use sorting::selection_sort;
         let mut arr = [5,10,3,6,9,3,4,2];
+        selection_sort(&mut arr);
+        assert_eq!(arr, [2,3,3,4,5,6,9,10]);
+
+        let mut arr2 = [5,4,3,2,1];
+        selection_sort(&mut arr2);
+        assert_eq!(arr2, [1,2,3,4,5]);
+    }
+
+    #[test]
+    fn test_vec_int_selection_sort() {
+        use sorting::selection_sort;
+        let mut arr = vec![5,10,3,6,9,3,4,2];
         selection_sort(&mut arr);
         assert_eq!(arr, [2,3,3,4,5,6,9,10]);
 
