@@ -5,6 +5,11 @@
 
 // use std::cmp::PartialOrd;
 
+/* TODO:
+ * There is a LinkedList included in standard collections,
+ * But it might be good practice to build own that can be sorted. 
+ */
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
