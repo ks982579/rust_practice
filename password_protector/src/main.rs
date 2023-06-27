@@ -1,6 +1,8 @@
 // lock <file> <password>
 // unlock <file> <password>
 
+// use std::prelude::*;
+
 // Action should be supplied by user
 #[derive(Debug)]
 enum Action {
@@ -15,10 +17,16 @@ struct Instructions {
     password: String,
 }
 
+struct Limits {
+    upper: i16,
+    lower: i16,
+}
+
 fn fetch_args() {
-    let action: Option = std::env::args().nth(1);
+    let action: Option<String> = std::env::args().nth(1);
 }
 
 fn main() {
     println!("Hello, world!");
+    fetch_args();
 }
