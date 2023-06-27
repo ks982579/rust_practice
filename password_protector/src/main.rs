@@ -3,6 +3,13 @@
 
 // use std::prelude::*;
 
+// T must implement the Debug trait!
+fn help<T: std::fmt::Debug>(thing: &T) {
+    println!("Value: {:?}", thing);
+    // What a pain this was to get working.
+    println!("Type: {:?}", std::any::type_name::<T>());
+}
+
 // Action should be supplied by user
 #[derive(Debug)]
 enum Action {
@@ -29,11 +36,12 @@ fn obfuscate(password: String) -> String {
     // takes ownership to delete existence
     let mut new_bytes: Vec<u8> = Vec::new();
     for byte in password.into_bytes() {
-        println!("{} -> {}", &byte, String::from_utf8(vec![byte]).unwrap());
+        // println!("{} -> {}", &byte, String::from_utf8(vec![byte]).unwrap());
         new_bytes.push(byte + 1);
-        println!("{} -> {}", &byte+1, String::from_utf8(vec![byte+1]).unwrap());
+        // println!("{} -> {}", &byte+1, String::from_utf8(vec![byte+1]).unwrap());
     }
     // println!("{:?}", &password.as_bytes());
+    // from_utf8 returns a Result
     String::from_utf8(new_bytes).unwrap()
 }
 
@@ -48,4 +56,7 @@ fn fetch_args() {
 fn main() {
     println!("Hello, world!");
     fetch_args();
+    let text = obfuscate("String".to_string());
+    help(&text);
+    println!("{}", text);
 }
