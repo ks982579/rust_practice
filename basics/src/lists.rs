@@ -47,6 +47,36 @@ impl<T> Stack<T> {
     }
 }
 
+// -----------------------------------------------
+// --------------- Queues ------------------------
+// -----------------------------------------------
+
+#[derive(Debug, Clone, PartialEq, PartialOrd)]
+pub struct NonPriorityQueueNode<T> {
+    pub value: T,
+}
+
+#[derive(Debug, Clone, PartialEq, PartialOrd)]
+pub struct NonPriorityQueue<T> {
+    pub queue: Option<Box<NonPriorityQueueNode<T>>>,
+}
+
+impl<T> NonPriorityQueue<T> {
+    pub fn new() -> Self {
+        NonPriorityQueue { queue: None }
+    }
+    pub fn enqueue() {
+        todo!();
+    }
+    pub fn dequeue() {
+        todo!();
+    }
+}
+
+// -----------------------------------------------
+// ---------------- Tests ------------------------
+// -----------------------------------------------
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -96,5 +126,15 @@ mod tests {
         };
         assert_eq!(actual_value, expected_value);
         assert_eq!(actual_stack, expected_stack);
+    }
+    #[test]
+    fn test_make_non_priority_queue() {
+        let actual: NonPriorityQueue<i8> = NonPriorityQueue::new();
+        let excpected: NonPriorityQueue<i8> = NonPriorityQueue { queue: None };
+        let fails_val: NonPriorityQueue<i8> = NonPriorityQueue {
+            queue: Some(Box::new(NonPriorityQueueNode::<i8> { value: 5 })),
+        };
+        assert!(actual == excpected);
+        assert_ne!(actual, fails_val);
     }
 }
