@@ -7,3 +7,5 @@ allowing this README to stay up to date with a description of projects.
 ## Password Protector
 
 There's an interesting [CLI Applications Mini Book](https://rust-cli.github.io/book/tutorial/cli-args.html). 
+
+[PathBuf](https://doc.rust-lang.org/std/path/index.html) is basically a `String`. 
